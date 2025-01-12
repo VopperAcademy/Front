@@ -1,4 +1,4 @@
-import Card_platform from "@/components/ui/CardPlatform";
+import CardPlatform from "@/components/ui/CardPlatform";
 
 export default function Plataformas() {
   return (
@@ -7,7 +7,7 @@ export default function Plataformas() {
     Elige tu plataforma favorita
   </h3>
   <div className="grid grid-cols-4 gap-[23px]">
-<Card_platform img="vercel.svg" alt="xd" title="OwO" description="hola mundo :p"/>
+<CardPlatform img="/platzi.png" alt="xd" title="OwO" description="hola mundo :p esta es una descripcion para provar la propiedade de tailwind csas que usa webkit llamade kline clamp texto de relleno auuuuuuuu"/>
   </div>
 </section>
   );
