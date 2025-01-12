@@ -13,6 +13,21 @@ export default {
         primary: "#3a43a0",
       },
     },
+    fontFamily: {
+      'Montserrat': ['"Montserrat"', 'serif'],
+    }
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: any) {
+      addUtilities({
+        ".no-scroll-cursor::-webkit-scrollbar": {
+          display: "none",
+        },
+        "no-scroll-cursor": {
+          'scrollbar-width': 'none', // Firefox
+          'cursor': 'none', // Quitar el cursor
+        },
+      });
+    },
+  ],
 };
