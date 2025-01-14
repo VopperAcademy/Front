@@ -4,7 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
-export default function NavLinks({children, href}) {
+export default function NavLinks({children, href}: {children: React.ReactNode, href: string}) {
 
   const path = usePathname();
 
