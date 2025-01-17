@@ -1,12 +1,24 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { CiPlay1 } from "react-icons/ci";
 import { redirect } from "next/navigation";
+import courseImg from "@public/img/courseImg.png";
 
-export default function CourseCard({ img, titulo, academia, tecnologias }:
-  {img: string, titulo: string, academia: string, tecnologias: string[]}) {
+export default function CourseCard({
+  img = courseImg,
+  titulo,
+  academia,
+  tecnologias,
+  id,
+}: {
+  img?: StaticImageData | string;
+  titulo: string;
+  academia: string;
+  tecnologias: string[];
+  id: string;
+}) {
   const handleClick = () => {
-    redirect("/modulo");
+    redirect(`/modulo/${id}`);
   };
 
   return (

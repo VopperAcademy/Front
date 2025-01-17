@@ -1,78 +1,58 @@
+"use client";
+import { GET } from "@/api/GetChapters";
 import ModuleCard from "@/components/ModuleCard";
+import { CourseAndChapters } from "@/types/Courses";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { GoPaperclip } from "react-icons/go";
 import { HiOutlinePlay } from "react-icons/hi";
 
-function CursoLayout({ children}: 
-  Readonly<{ children: React.ReactNode }>) {
-  
-    const modules = [
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción a los algortimos revursivos de python",
-      status: "Completo",
-      index: 1,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Java desde 0 a experto",
-      status: "Completo",
-      index: 2,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "introducción a las bases de datos con sql server",
-      status: "Completo",
-      index: 3,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "JavaScritp desde 0 a experto",
-      status: "Completo",
-      index: 4,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "DotNet + MAUI + ASP.NET Core + Blazor",
-      status: "Completo",
-      index: 5,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 6,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 7,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 8,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 9,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 10,
-    },
-    {
-      img: "/img/courseImg.png",
-      title: "Introducción",
-      status: "Completo",
-      index: 11,
-    },
-  ];
+function CursoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const params = useParams();
+  const id: string | undefined = params.id?.toString(); // Parámetro de la URL
+
+  const [apiResponse, setApiResponse] = useState<CourseAndChapters | null>(
+    null
+  ); // Estado para almacenar la respuesta de la API
+  const [loading, setLoading] = useState<boolean>(true); // Estado de carga
+  const [error, setError] = useState<string | null>(null); // Estado de error
+
+  // Efecto para cargar los datos al montar el componente
+  useEffect(() => {
+    if (!id) {
+      setError("El ID del curso no está definido.");
+      setLoading(false);
+      return;
+    }
+
+    const fetchData = async () => {
+      try {
+        const response = (await GET({ idCourse: id })).data;
+        setApiResponse(response);
+      } catch (err: any) {
+        setError(err.message || "Error al obtener los datos del curso.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center size-full">
+        <p>Cargando datos del curso...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center size-full">
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
 
   return (
     <section className="flex size-full flex-row-reverse overflow-y-auto">
@@ -88,14 +68,14 @@ function CursoLayout({ children}:
               scrollbarColor: "#A9A9A9 #26282D",
             }}
           >
-            {modules.map((module) => {
+            {apiResponse?.chapters.map((module, index) => {
               return (
                 <ModuleCard
-                  key={module.index}
-                  img={module.img}
+                  key={index}
+                  img={module.imgUrl || "../../img/courseImg.png"}
                   title={module.title}
-                  status={module.status}
-                  index={module.index}
+                  status={module.duration}
+                  index={index+1}
                 />
               );
             })}
@@ -114,7 +94,9 @@ function CursoLayout({ children}:
           </div>
         </section>
       </aside>
-      <main className="flex flex-col flex-auto">{children}</main>
+      <main className="flex flex-col flex-auto">{
+        children
+      }</main>
     </section>
   );
 }
