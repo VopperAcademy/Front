@@ -4,19 +4,8 @@ import { CiPlay1 } from "react-icons/ci";
 import { redirect } from "next/navigation";
 import courseImg from "@public/img/courseImg.png";
 
-export default function CourseCard({
-  img = courseImg,
-  titulo,
-  academia,
-  tecnologias,
-  id,
-}: {
-  img?: StaticImageData | string;
-  titulo: string;
-  academia: string;
-  tecnologias: string[];
-  id: string;
-}) {
+export default function CourseCard({ img, titulo, academia, tecnologias }:
+  {img: string, titulo: string, academia: string, tecnologias: string[]}) {
   const handleClick = () => {
     redirect(`/modulo/${id}`);
   };
