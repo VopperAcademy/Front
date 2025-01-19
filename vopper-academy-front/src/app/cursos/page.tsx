@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import { GET } from "@api/getCourse";
+import { GET } from "@/api/GetCourses";
 import CourseCard from "../../components/CourseCard";
 import { Courses } from "@/types/Courses";
 
@@ -22,6 +22,7 @@ async function Cursos() {
             titulo={curso.title}
             academia={curso.teacher}
             tecnologias={curso.category}
+            img={curso.imageUrl}
             id={curso.id}
           />
         );

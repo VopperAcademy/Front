@@ -4,8 +4,19 @@ import { CiPlay1 } from "react-icons/ci";
 import { redirect } from "next/navigation";
 import courseImg from "@public/img/courseImg.png";
 
-export default function CourseCard({ img, titulo, academia, tecnologias }:
-  {img: string, titulo: string, academia: string, tecnologias: string[]}) {
+export default function CourseCard({
+  id,
+  img = courseImg,
+  titulo,
+  academia,
+  tecnologias,
+}: {
+  id?: string;
+  img?: string | StaticImageData;
+  titulo: string;
+  academia: string;
+  tecnologias: string[];
+}) {
   const handleClick = () => {
     redirect(`/modulo/${id}`);
   };
@@ -14,8 +25,10 @@ export default function CourseCard({ img, titulo, academia, tecnologias }:
     <section>
       <div className="relative flex flex-col justify-center items-center rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 text-white hover:text-black hover:text-xl">
         <Image
-          className="relative rounded-2xl"
-          src={img}
+          className="relative rounded-2xl object-cover  h-40 "
+          src={
+            typeof img == "string" && img.startsWith("http") ? img : courseImg
+          }
           alt="Course Image"
           width={250}
           height={200}
