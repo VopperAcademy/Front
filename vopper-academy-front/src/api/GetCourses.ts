@@ -5,6 +5,7 @@ import { ApiResponseList } from '@interfaces/ApiResponse'; // Interface ApiRespo
 const url = process.env.NEXT_PUBLIC_API_URL;
 
 export const GET = async (): Promise<ApiResponseList<Courses>> => {
+  
   if (!url) {
     throw new Error('La variable de entorno  no está definida.');
   }
