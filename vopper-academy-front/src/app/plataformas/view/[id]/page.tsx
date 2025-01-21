@@ -1,5 +1,6 @@
 import CourseCard from "@/components/CourseCard";
 import Image from "next/image";
+import Dropdown from "@/components/Dropdown";
 import { GET as getCourseFindByPlatform } from "@/api/GetCourseFindByPlatform";
 import { Courses } from "@/types/Courses";
 
@@ -14,7 +15,10 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
   const platform = (await getCourseFindByPlatform(id)).data;
 
   const courses: Courses[] = platform.filterCourses;
-
+  const options = [
+    { label: "CSS", value: "CSS" },
+    { label: "Ejemplo ejemploso", value: "Ejemplo ejemploso" },
+  ];
   return (
     <>
       {/* Header o barra superior */}
@@ -29,8 +33,13 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
           />
         </figure>
         <p>{platform.namePlatform}</p>
-      </header>
 
+      </header>
+      <section className=" flex w-full">
+              <div className=" pl-4 font-Montserrat">
+                <div className="flex gap-[10px] text-[14px] font-normal"><p>Filtrar por:</p><Dropdown options={options}/></div>
+              </div>
+            </section>
       {/* Sección de cursos */}
       <section
         className="grid grid-cols-4 gap-10 overflow-y-auto max-h-[555px] pb-32 px-5 w-full"
