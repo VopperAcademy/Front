@@ -1,28 +1,24 @@
-import { CourseAndChapters } from '../types/Courses'; // Interface Courses
-import { ApiResponse } from '@interfaces/ApiResponse'; // Interface ApiResponse
+import { CourseAndChapters } from "../types/Courses"; // Interface Courses
+import { ApiResponse } from "@interfaces/ApiResponse"; // Interface ApiResponse
 
 const url = process.env.NEXT_PUBLIC_API_URL;
 
-export const GET = async ({
-    idCourse,
-}: {
-    idCourse: string | undefined;
-}): Promise<ApiResponse<CourseAndChapters>> => {
-    /*
-      // Validación de la variable de entorno
-      if (!process.env.API_URL) {
-          throw new Error('La variable de entorno API_URL no está definida.');
-      }
-      console.log(idCourse)
-      if (!idCourse) {
-          throw new Error('El ID del curso no está definido.');
-      }
-  */
+export const GET = async ({ idCourse, }: { idCourse: string | undefined; }): Promise<ApiResponse<CourseAndChapters>> => {
+
+    if (!idCourse) {
+        throw new Error("El ID del curso no está definido.");
+    }
+
     const URL = `${url}/courses/${idCourse}`;
 
     try {
+
         const response = await fetch(URL, {
-            cache: 'no-store', // Evitar caché para datos dinámicos
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cache: "default",
         });
 
         if (!response.ok) {
@@ -41,8 +37,9 @@ export const GET = async ({
         }
 
         return apiResponse;
+
     } catch (error: any) {
         console.error(`Error al realizar la solicitud: ${error.message}`);
-        throw new Error('Hubo un problema al obtener los cursos.');
+        throw new Error("Hubo un problema al obtener los cursos.");
     }
 };

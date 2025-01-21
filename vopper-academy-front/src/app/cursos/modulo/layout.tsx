@@ -1,58 +1,25 @@
 "use client";
-import { GET } from "@/api/GetChapters";
 import ModuleCard from "@/components/ModuleCard";
-import { CourseAndChapters } from "@/types/Courses";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoPaperclip } from "react-icons/go";
 import { HiOutlinePlay } from "react-icons/hi";
+import { useCourseStore } from "@/stores/course";
 
-function CursoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+
+function CursoLayout({children}: {children: React.ReactElement}) {
+
   const params = useParams();
-  const id: string | undefined = params.id?.toString(); // Parámetro de la URL
+  const id_modulo: string | undefined = params.id_modulo?.toString(); 
+  const id_chapter: string | undefined = params.id_capitulo?.toString() || "1"; // id del capítulo por default es el 1
 
-  const [apiResponse, setApiResponse] = useState<CourseAndChapters | null>(
-    null
-  ); // Estado para almacenar la respuesta de la API
-  const [loading, setLoading] = useState<boolean>(true); // Estado de carga
-  const [error, setError] = useState<string | null>(null); // Estado de error
+  const {data, fetchCourse, loading, error} = useCourseStore();
 
-  // Efecto para cargar los datos al montar el componente
   useEffect(() => {
-    if (!id) {
-      setError("El ID del curso no está definido.");
-      setLoading(false);
-      return;
+    if (id_modulo) {
+      fetchCourse(id_modulo);
     }
-
-    const fetchData = async () => {
-      try {
-        const response = (await GET({ idCourse: id })).data;
-        setApiResponse(response);
-      } catch (err: any) {
-        setError(err.message || "Error al obtener los datos del curso.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center size-full">
-        <p>Cargando datos del curso...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center size-full">
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
+  }, [id_modulo, fetchCourse]);
 
   return (
     <section className="flex size-full flex-row-reverse overflow-y-auto">
@@ -68,14 +35,16 @@ function CursoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
               scrollbarColor: "#A9A9A9 #26282D",
             }}
           >
-            {apiResponse?.chapters.map((module, index) => {
+            {data?.chapters.map((module, index) => {
               return (
                 <ModuleCard
-                  key={index}
+                  key={index+1}
                   img={module.imgUrl || "../../img/courseImg.png"}
                   title={module.title}
                   status={module.duration}
-                  index={index+1}
+                  index={index + 1}
+                  id_modulo={id_modulo || ""}
+                  idChapter={parseInt(id_chapter)}
                 />
               );
             })}
@@ -94,9 +63,9 @@ function CursoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
           </div>
         </section>
       </aside>
-      <main className="flex flex-col flex-auto">{
-        children
-      }</main>
+      <main className="flex flex-col flex-auto">
+        {children}
+      </main>
     </section>
   );
 }

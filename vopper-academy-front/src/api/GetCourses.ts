@@ -5,7 +5,7 @@ import { ApiResponseList } from '@interfaces/ApiResponse'; // Interface ApiRespo
 const url = process.env.NEXT_PUBLIC_API_URL;
 
 export const GET = async (): Promise<ApiResponseList<Courses>> => {
-  
+
   if (!url) {
     throw new Error('La variable de entorno  no está definida.');
   }
@@ -14,7 +14,11 @@ export const GET = async (): Promise<ApiResponseList<Courses>> => {
 
   try {
     const response = await fetch(URL, {
-      cache: 'no-store', // Opcional: evita caché en datos dinámicos
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "default",
     });
 
     if (!response.ok) {

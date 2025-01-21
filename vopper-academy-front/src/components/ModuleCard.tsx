@@ -1,8 +1,16 @@
+import { redirect } from "next/navigation";
 
-export default function ModuleCard({ img, title, status, index }: 
-  {img: string, title: string, status: string, index: number}) {
-  return (
-    <section className="flex hover:bg-black/30 backdrop-blur-2xl rounded-lg px-2 py-3 transition-all duration-300 ease-in-out">
+export default function ModuleCard({ img, title, status, index, id_modulo, idChapter }: 
+  {img: string, title: string, status: string, index: number, id_modulo: string, idChapter: number}) {
+  
+    const handleClick = () => {
+      redirect(`/cursos/modulo/${id_modulo}/${index}`);
+    }
+  
+    return (
+    <section onClick={handleClick} className={`flex backdrop-blur-2xl rounded-lg px-2 py-3 transition-all duration-300 ease-in-out
+    ${index === idChapter ? "bg-[#9BA4FD] text-white" : "hover:bg-[#9BA4FD] hover:text-white"} cursor-pointer
+    `}>
       <div className="flex flex-col items-center justify-center pr-4">
         <span className="py-[2px] px-2 text-sm bg-[#9BA4FD] text-white rounded-full">
           {index}

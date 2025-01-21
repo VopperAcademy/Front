@@ -18,7 +18,7 @@ export default function CourseCard({
   tecnologias: string[];
 }) {
   const handleClick = () => {
-    redirect(`/modulo/${id}`);
+    redirect(`/cursos/modulo/${id}/1`);
   };
 
   return (

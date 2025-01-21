@@ -4,11 +4,8 @@ import Dropdown from "@/components/Dropdown";
 import { GET as getCourseFindByPlatform } from "@/api/GetCourseFindByPlatform";
 import { Courses } from "@/types/Courses";
 
-export default async function Pltaform_view({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function Pltaform_view({ params, }: {params: { id: string };}) {
+  
   const { id } = await params;
 
   if (!id) {
@@ -16,11 +13,6 @@ export default async function Pltaform_view({
   }
 
   const platform = (await getCourseFindByPlatform(id)).data;
-
-  console.log(platform.filterCourses);
-
-  
-
 
   const courses: Courses[] = platform.filterCourses;
   const options = [
@@ -63,6 +55,7 @@ export default async function Pltaform_view({
             titulo={curso.title}
             academia={curso.teacher}
             tecnologias={curso.category}
+            id={curso.id}
           />
         ))}
       </section>
