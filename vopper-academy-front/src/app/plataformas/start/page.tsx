@@ -56,7 +56,7 @@ export default function StartPlatform () {
         {/* Header o barra superior */}
       {/* Header o barra superior */}
 <div className="flex pl-4 w-full">
-<h3 className="text-xl text-left ">Plataformas</h3>
+<h3 className="text-xl text-left">Plataformas</h3>
 </div>
 
       <header className="flex gap-1 items-center">
