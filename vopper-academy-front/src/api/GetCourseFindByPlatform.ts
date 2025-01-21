@@ -14,7 +14,11 @@ const GET = async (id: string): Promise<ApiResponse<platformsAndCourse>> => {
     try {
 
         const response = await fetch(URL, {
-            cache: "no-cache",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cache: "default",
         });
 
         if (!response.ok) {

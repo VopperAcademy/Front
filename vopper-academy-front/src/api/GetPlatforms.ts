@@ -15,7 +15,11 @@ const GET = async (): Promise<ApiResponseList<Platforms>> => {
     try {
 
         const response = await fetch(URL, {
-            cache: 'no-store', // Opcional: evita caché en datos dinámicos
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cache: "default",
         });
 
         if (!response.ok) {
