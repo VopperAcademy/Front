@@ -11,8 +11,12 @@ export type Courses = {
 export type CourseAndChapters = {
     id: string;
     title: string;
-    category: [string];
-    teacher: string;
+    description: string;
+    categories: string[];
+    chapters: Chapter[];
+    chaptersCount: number;
     imageUrl: string;
-    chapters: Chapter[]
+    platform: string;
+    teacher: string;
+    date: string;
 }

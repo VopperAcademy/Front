@@ -13,7 +13,7 @@ function CursoLayout({children}: {children: React.ReactElement}) {
   const id_modulo: string | undefined = params.id_modulo?.toString(); 
   const id_chapter: string | undefined = params.id_capitulo?.toString() || "1"; // id del capítulo por default es el 1
 
-  const {data, fetchCourse, loading, error} = useCourseStore();
+  const {data, fetchCourse} = useCourseStore();
 
   useEffect(() => {
     if (id_modulo) {
@@ -39,7 +39,7 @@ function CursoLayout({children}: {children: React.ReactElement}) {
               return (
                 <ModuleCard
                   key={index+1}
-                  img={module.imgUrl || "../../img/courseImg.png"}
+                  img={module.imageUrl}
                   title={module.title}
                   status={module.duration}
                   index={index + 1}

@@ -3,5 +3,5 @@ export type Chapter = {
     duration: string,
     url: string,
     views: number,
-    imgUrl: string
+    imageUrl: string
 } 
