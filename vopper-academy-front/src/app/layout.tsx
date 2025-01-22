@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Aside from "@/components/Aside";
 import { icons, Search } from "lucide-react";
+import Donation from "@/components/Donation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +23,19 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+  const handleDonation = () => {
+    alert("Gracias por tu donación, ahora podremos comprar más café");
+  }
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased
-          grid grid-cols-[260px_1fr] size-full
+          grid grid-cols-[260px_1fr] size-full relative z-0
         `}
       >
+        <Donation />
         <Aside />
         <main className="flex flex-col items-center py-8 gap-8 ">
           <div className="relative flex items-center">
