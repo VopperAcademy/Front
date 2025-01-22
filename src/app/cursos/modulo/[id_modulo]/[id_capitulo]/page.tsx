@@ -7,6 +7,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Chapter } from "@/types/Chapter";
 import Loading from "@/app/loading";
+import { Eye } from "lucide-react";
 
 function Modulo() {
   const param = useParams();
@@ -58,38 +59,40 @@ function Modulo() {
   }
 
   return (
-    <section className="size-full">
+    <section className="size-full flex flex-col gap-4">
       <iframe
-        width="900"
-        height="500"
+      className="w-full aspect-video rounded-xl"
         src={dataChapter?.url}
         scrolling="no"
         allow="fullscreen"
-      ></iframe>
+      />
 
-      <footer className="pt-5">
+      <footer className="flex gap-1 flex-col">
         <div className="flex justify-between items-center">
           <div className="flex flex-col items-start gap-1">
-            <h1 className="font-Montserrat font-semibold text-[24px] max-w-[600px]">
+            <h1 className="font-montserrat font-semibold text-[24px] max-w-[600px]">
               {data?.title}
             </h1>
-            <p className="text-sm text-white/70">
-              vistas: {dataChapter?.views}
-            </p>
           </div>
-          <button className="flex items-center justify-center gap-2 rounded-2xl border-2 border-[#39429F] px-5 py-1">
-            <FaShare />
-            Compartir
-          </button>
+          <div className="flex gap-4 items-center">
+            <span className=" text-white/70 flex items-center gap-4">
+              {/* <Eye /> */}
+              vistas: {dataChapter?.views}
+            </span>
+            <button className="flex items-center justify-center gap-2 rounded-2xl border-2 border-[#39429F] px-5 py-1">
+              <FaShare />
+              Compartir
+            </button>
+          </div>
         </div>
-        <p className="text-[20px] text-[#6E6E6E] font-Montserrat font-light">
+        <p className="text-[20px] text-[#6E6E6E] font-montserrat font-light">
           Por {data?.teacher}
         </p>
         <div>
           {data?.categories.map((category) => {
             return (
               <span
-                className="text-white bg-white/30 rounded-3xl py-1 px-3 text-[11px] font-Montserrat font-medium"
+                className="text-white bg-white/30 rounded-3xl py-1 px-3 text-[11px] font-montserrat font-medium"
                 key={category}
               >
                 {category}

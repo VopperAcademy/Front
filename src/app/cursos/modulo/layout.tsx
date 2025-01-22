@@ -22,17 +22,22 @@ function CursoLayout({children}: {children: React.ReactElement}) {
   }, [id_modulo, fetchCourse]);
 
   return (
-    <section className="flex size-full flex-row-reverse overflow-y-auto">
-      <aside className="flex flex-col  rounded-xl px-7">
-        <section className="bg-[#26282D] rounded-xl">
-          <header className="flex m-3 items-center">
-            <h2 className="font-semibold">Capítulos</h2>
+    <section className="grid grid-cols-[1fr_350px] grid-rows-1 w-full h-full overflow-hidden gap-8">
+      <main className="flex flex-col flex-auto ">
+        {children}
+      </main>
+      <aside className="flex flex-col overflow-hidden h-full">
+        <section className="bg-[#26282D] rounded-xl overflow-hidden p-4 flex flex-col gap-4 h-full">
+          <header className="flex items-center">
+            <h2 className="text-2xl font-semibold">
+              Capítulos
+            </h2>
           </header>
           <ul
-            className="flex flex-col gap-2 px-4 py-5  overflow-y-auto max-h-[550px]"
+            className="flex flex-col gap-4 overflow-y-auto h-full"
             style={{
-              scrollbarWidth: "auto",
-              scrollbarColor: "#A9A9A9 #26282D",
+              scrollbarWidth: "thin",
+              scrollbarColor: "#A9A9A955 transparent",
             }}
           >
             {data?.chapters.map((module, index) => {
@@ -50,7 +55,7 @@ function CursoLayout({children}: {children: React.ReactElement}) {
             })}
           </ul>
         </section>
-        <section className="flex justify-center border-t-[#26282D] border-t-4 my-3 mx-4">
+        <section className="flex justify-center">
           <div className="flex gap-5 pt-3">
             <button className="flex text-white/50 hover:text-white gap-2 items-center">
               <GoPaperclip />
@@ -63,9 +68,6 @@ function CursoLayout({children}: {children: React.ReactElement}) {
           </div>
         </section>
       </aside>
-      <main className="flex flex-col flex-auto">
-        {children}
-      </main>
     </section>
   );
 }

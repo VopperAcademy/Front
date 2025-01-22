@@ -111,7 +111,7 @@ export default function StartPlatform () {
       </header>
 
       <section className=" flex w-full">
-        <div className=" pl-4 font-Montserrat">
+        <div className=" pl-4 font-montserrat">
         <p className="text-[20px] font-semibold">Cursos de {platform}</p>
           <div className="flex gap-[10px] text-[14px] font-normal"><p>Filtrar por:</p><Dropdown options={options}/></div>
         <p className="text-[20px] font-medium">{categoria_global}</p>

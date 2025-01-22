@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Aside from "@/components/Aside";
-import { icons, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Donation from "@/components/Donation";
 
 const geistSans = Geist({
@@ -32,12 +32,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased
-          grid grid-cols-[260px_1fr] size-full relative z-0
+          grid grid-cols-[auto_1fr] grid-rows-[100dvh] size-full relative z-0
         `}
       >
-        <Donation />
+        {/* <Donation /> */}
         <Aside />
-        <main className="flex flex-col items-center py-8 gap-8 ">
+        <main className="flex flex-col items-center p-8 gap-8">
           <div className="relative flex items-center">
             <Search strokeWidth={1} size={20} className="absolute left-2" />
             <input
@@ -46,7 +46,10 @@ export default function RootLayout({
               className="bg-transparent border-2 border-neutral-600 rounded-lg pl-8 pr-2 py-1.5 w-[800px]"
             />
           </div>
-          {children}
+          {/* <hr className="border w-full -mb-8"/> */}
+          {/* <section className="size-full border overflow-hidden"> */}
+            {children}
+          {/* </section> */}
         </main>
       </body>
     </html>

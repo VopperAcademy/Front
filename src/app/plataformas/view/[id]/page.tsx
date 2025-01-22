@@ -22,7 +22,7 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
   return (
     <>
       {/* Header o barra superior */}
-      <header className="flex gap-[10px] items-center bg-[#A9A9A91A] h-24 w-full rounded-l-full mx-[25px] font-Montserrat text-[20px]">
+      <header className="flex gap-[10px] items-center bg-[#A9A9A91A] h-24 w-full rounded-l-full mx-[25px] font-montserrat text-[20px]">
         <figure className="flex justify-center items-center rounded-full h-[80px] w-[80px] p-[10px] z-10 ">
           <Image
             src={platform.imagePlatform}
@@ -36,7 +36,7 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
 
       </header>
       <section className=" flex w-full">
-              <div className=" pl-4 font-Montserrat">
+              <div className=" pl-4 font-montserrat">
                 <div className="flex gap-[10px] text-[14px] font-normal"><p>Filtrar por:</p><Dropdown options={options}/></div>
               </div>
             </section>
