@@ -1,3 +1,5 @@
+"use client"
+
 import CardPlatform from "@/components/CardPlatform"
 import CategoryCard from "@/components/CategoryCard"
 import CourseCard from "@/components/CourseCard"
@@ -13,15 +15,245 @@ export default function Home() {
     }
   };
   return (
-    <>
+    <section  className="flex flex-col gap-4 w-full max-h-full overflow-hidden">
 
       <div className="flex w-full">
         <h3 className="font-montserrat font-medium text-[20px] text-left">Plataformas</h3>
       </div>
 
-      <header className="flex flex-wrap justify-between ">
+      <header className="flex w-full gap-6 flex-nowrap overflow-x-auto h-28"
+        style={{
+          scrollbarWidth: "none", // Se cambia por thin para que aparezca el scrollbar
+          scrollbarColor: "#A9A9A955 transparent",
+        }}
+      >
+
+      <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
 
         <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />
+        <LogoCardPlatform
+          img="/platzi.png"
+          alt="holaaaaa"
+          title="Prueba"
+        />        <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />
+      <LogoCardPlatform
+        img="/platzi.png"
+        alt="holaaaaa"
+        title="Prueba"
+      />        <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />
+    <LogoCardPlatform
+      img="/platzi.png"
+      alt="holaaaaa"
+      title="Prueba"
+    />        <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />
+  <LogoCardPlatform
+    img="/platzi.png"
+    alt="holaaaaa"
+    title="Prueba"
+  />        <LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>
+<LogoCardPlatform
+  img="/platzi.png"
+  alt="holaaaaa"
+  title="Prueba"
+/>        <LogoCardPlatform
           img="/platzi.png"
           alt="holaaaaa"
           title="Prueba"
@@ -69,45 +301,67 @@ export default function Home() {
         />
 
       </header>
-      <div className="flex w-full">
-        <h3 className="font-montserrat font-medium text-[20px] text-left">Capitulos recien agregados</h3>
-      </div>
-      <section className="flex gap-[25px] ">
-        <button
-          onClick={() => scrollSection("left")}
 
-        >
+      <h3 className="font-montserrat font-medium text-[20px] text-left">
+        Capitulos recien agregados
+      </h3>
+
+      <section className="flex w-full gap-6 flex-nowrap overflow-x-auto h-80"
+        style={{
+          scrollbarWidth: "none", // Se cambia por thin para que aparezca el scrollbar
+          scrollbarColor: "#A9A9A955 transparent",
+        }}
+      >
+        {/* <button onClick={() => scrollSection("left")}>
           ⬅️
-        </button>
+        </button> */}
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
         <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
-        <button
-          onClick={() => scrollSection("right")}
-
-        >
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        <CourseCard id="1" img="/imgcourseImg.png" titulo="Principios de animacion" academia="vopper" tecnologias={["hola", "hola"]} />
+        {/* <button onClick={() => scrollSection("right")}>
           ➡️
-        </button>
+        </button> */}
       </section>
-      <div className="flex w-full">
-        <h3 className="font-montserrat font-bold text-[20px] text-left"><span className="text-[#3A43A0]"> Categorias</span>que podrian interesarte</h3>
-      </div>
-      <section className="flex flex-wrap gap-[25px]">
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
-        <CategoryCard img="/img/categoryImg.jpeg" alt="imagen de ejemplo" categoria="Desarrollo de videojuegos" />
+
+      <h3 className="font-montserrat font-bold text-[20px] text-left">
+        <span className="text-[#3A43A0]">Categorias </span>
+        que podrian interesarte
+      </h3>
+
+      <section className="flex flex-wrap gap-x-8 gap-y-4 overflow-y-auto"
+        style={{
+          scrollbarWidth: "thin",
+          scrollbarColor: "#A9A9A955 transparent",
+        }}
+      >
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
+        <CategoryCard img="/img/categoryImg.jpeg" alt="OwO" categoria="Desarrollo de Videojuegos" />
       </section>
-    </>
+    </section>
   )
 }

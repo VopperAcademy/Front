@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         {/* <Donation /> */}
         <Aside />
-        <main className="flex flex-col items-center p-8 gap-8">
+        <main className="flex flex-col items-center p-8 gap-8 overflow-hidden">
           <div className="relative flex items-center">
             <Search strokeWidth={1} size={20} className="absolute left-2" />
             <input

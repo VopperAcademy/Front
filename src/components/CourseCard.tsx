@@ -22,7 +22,7 @@ export default function CourseCard({
   };
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 min-w-60">
       <div className="relative flex flex-col justify-center items-center rounded-2xl transition-all duration-300 ease-in-out transform text-whitehover:text-xl">
         <Image
           className="relative rounded-xl object-cover h-40"
