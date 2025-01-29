@@ -9,7 +9,7 @@ async function Cursos() {
 
   return (
     <section className="flex flex-col gap-4 w-full max-h-full overflow-hidden">
-      <h3 className="text-xl font-montserrat font-medium">
+      <h3 className="text-xl font-montserrat font-medium  ">
         Explorar todas las categorías
       </h3>
       <section className="flex flex-wrap gap-x-8 gap-y-4 overflow-y-auto"
@@ -18,7 +18,7 @@ async function Cursos() {
           scrollbarColor: "#A9A9A955 transparent",
         }}
       >
-      {courses.map((curso) => {
+      {courses?.map((curso) => {
           return (
             <CourseCard
               key={curso.id}
