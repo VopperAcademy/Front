@@ -14,7 +14,7 @@ export default function Home() {
       text="Boton de ejemmplo para ir a categorias/view"
       css="p-4"
       />
-      Home
+
     </div>
   );
 }

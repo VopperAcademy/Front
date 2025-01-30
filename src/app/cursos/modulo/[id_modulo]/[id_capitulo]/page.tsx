@@ -18,7 +18,19 @@ function Modulo() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const {data, fetchCourse} = useCourseStore();
+  {/*Logica del PopUp tipo modaL me dan feedback de mis practicas de codigo porfa, quiero mejorar :D*/ }
+
+  const [showAd, setShowAd] = useState(true);
+  const [countdown, setCountdown] = useState<number | null>(null);
+
+  const handleAdClick = () => {
+    if (countdown !== null) return;
+    setCountdown(15);
+    const timer = setInterval(() => setCountdown((prev) => (prev && prev > 1 ? prev - 1 : (clearInterval(timer), setShowAd(false), null))), 1000);
+  };
+
+  {/*termina la logica del PopUp*/ }
+  const { data, fetchCourse } = useCourseStore();
 
   useEffect(() => {
     if (!id_modulo || !id_capitulo) {
@@ -49,7 +61,7 @@ function Modulo() {
   if (error) {
     return (
       <div className="flex justify-center items-center size-full">
-        <NotFound/>
+        <NotFound />
       </div>
     );
   }
@@ -60,8 +72,34 @@ function Modulo() {
 
   return (
     <section className="size-full flex flex-col gap-4">
+      {showAd && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center">
+          <div className="bg-white p-4 rounded-lg text-black flex flex-col items-center relative">
+            <p className="text-2xl font-bold font-montserrat">¡Haz clic en el anuncio para continuar!</p>
+
+
+            {countdown !== null && (
+              <div className=" flex flex-col my-3">
+                <p className="text-xl font-bold font-montserrat">Espera: <span className="text-orange-400 text-2xl">{countdown}</span>s para continuar</p>
+
+              </div>
+            )}
+
+            <div className="w-auto h-auto flex justify-center items-center">
+
+              <button onClick={handleAdClick} className="w-full h-full">
+                {/*Aqui va el anuncio por lo mientras es una imagen*/}
+                <img src="/img/dogSad.gif" alt="Anuncio" />
+              </button>
+            </div>
+
+
+          </div>
+        </div>
+      )}
+
       <iframe
-      className="w-full aspect-video rounded-xl"
+        className="w-full aspect-video rounded-xl"
         src={dataChapter?.url}
         scrolling="no"
         allow="fullscreen"
