@@ -14,7 +14,7 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
 
   const platform = (await getCourseFindByPlatform(id)).data;
 
-  const courses: Courses[] = platform.filterCourses;
+  const courses: Courses[] = platform!.filterCourses;
   const options = [
     { label: "CSS", value: "CSS" },
     { label: "Ejemplo ejemploso", value: "Ejemplo ejemploso" },
@@ -25,14 +25,14 @@ export default async function Pltaform_view({ params, }: {params: { id: string }
       <header className="flex gap-[10px] items-center bg-[#A9A9A91A] h-24 w-full rounded-l-full mx-[25px] font-montserrat text-[20px]">
         <figure className="flex justify-center items-center rounded-full h-[80px] w-[80px] p-[10px] z-10 ">
           <Image
-            src={platform.imagePlatform}
+            src={platform?.imagePlatform!}
             alt="imagen de plataforma"
             width={110}
             height={110}
             className="size-full rounded-full object-fill object-center"
           />
         </figure>
-        <p>{platform.namePlatform}</p>
+        <p>{platform?.namePlatform}</p>
 
       </header>
       <section className=" flex w-full">

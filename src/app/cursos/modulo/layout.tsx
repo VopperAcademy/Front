@@ -27,7 +27,8 @@ function CursoLayout({ children }: { children: React.ReactElement }) {
           <header className="flex flex-col ">
             <h2 className="text-2xl font-semibold">Capítulos</h2>
             <p className="text-sm font-montserrat ">
-              número de capítulos: {data?.chaptersCount}{" "}
+              número de capítulos: {data?.chapters.length} /{" "}
+              {data?.chaptersCount}
             </p>
           </header>
           <ul
